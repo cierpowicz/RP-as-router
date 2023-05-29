@@ -4,8 +4,14 @@
 
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/12c24901-35b9-4798-9179-f4489f416510)
 
-
+__ Pomoce naukowe:
+https://www.youtube.com/watch?v=h0sR7tKuI-U&list=LL&index=2&t=83s
+https://gist.github.com/Konamiman/110adcc485b372f1aff000b4180e2e10
+https://www.youtube.com/watch?v=TtLNue7gzZA
+__
 celem jest stworzenie bezpiecznego srodowiska do testowania sieci, analizy ruchu, odtworzanie roznych scenariuszy.
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Sprzecik
