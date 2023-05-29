@@ -147,24 +147,68 @@ tera wszystko dzial
 
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/49338227-6cad-44fd-8d6a-5256d5721196)
 
+##################################################################################################################
+##################################################################################################################
 
-
-## About The Project
-
-
-![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/12c24901-35b9-4798-9179-f4489f416510)
 
 __ Pomoce naukowe:
 https://www.youtube.com/watch?v=h0sR7tKuI-U&list=LL&index=2&t=83s
 https://gist.github.com/Konamiman/110adcc485b372f1aff000b4180e2e10
 https://www.youtube.com/watch?v=TtLNue7gzZA
 __
-celem jest stworzenie bezpiecznego srodowiska do testowania sieci, analizy ruchu, odtworzanie roznych scenariuszy.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+# How to use a Raspberry Pi to provide WiFi for Ethernet-only devices
 
-### Sprzecik
+
+![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/12c24901-35b9-4798-9179-f4489f416510)
+
+This project is about to create secure playground for network testing (difrent type of routing like OSPF RIP EIGRP etc.) and also last but not least the main goal is to take control on MY OWN old laptop Dell. E6320 witf Win7 6.1 SP1  [here](https://github.com/cierpowicz/Win7-testing) 
+
+* [Step By Step](#step-by-step)
+* [Troubleshooting](#troubleshooting)
+* [Resources](#resources)
+
+## Step By Step
+
+### Step 0: Configure Pi
+
+### Step 1: Setup DHCP
+
+### Step 2: configure IP forwarding
+
+### Step 3: Set the WiFi network as the main route
+
+### Step 4: configure one more file ```sh /etc/rc.local ```
+
+## Troubleshooting
+
+In this lab i found only 3 issues.
+
+1. SSH connection problem:
+  ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/770bc050-d762-471a-8d7a-574a24bf37c3)
+  Is because (i guess) RasberryPi after hard reset gets same IP from router. and during ssh conection i folder 
+  ``` /etc/.ssh.known_hosts ``` found 2 ssh keys from same IP address !!!
+2. After reboot the isc-dhcp-server service still dont work, is becouse you have to hash all lines in file
+  ```/etc/dhcpcd.conf ``` is supostu looks like this: 
+  ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/5bdeaadf-ee69-42d5-b42f-6d694d63c0b5)
+3. On my target PC (Dell.) i have IP address from dhcp from RBpi BUT still cant ```ping 8.8.8.8```
+   So you have to one more file on RBpi is ```/etc/rc.local```
+   
+``` iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE```
+  
+  File supostu look like this
+  ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/395ac48f-dcb9-4347-b5b5-ff8defb6e127)
+
+  
+  
+
+
+## Resources
+
+
+
+
 
 RasberyPi3 
 ASUS RT-N65U
