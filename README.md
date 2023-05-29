@@ -3,6 +3,9 @@
 
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/12c24901-35b9-4798-9179-f4489f416510)
 
+![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/353eb2b9-6278-4d71-a7c5-ac5e3915cb15)
+
+
 This project is about to create secure playground for network testing (difrent type of routing like OSPF RIP EIGRP etc.) and also last but not least the main goal is to take control on MY OWN old laptop Dell. E6320 witf Win7 6.1 SP1  [here](https://github.com/cierpowicz/Win7-testing) 
 
 * [Step By Step](#step-by-step)
