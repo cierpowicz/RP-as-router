@@ -6,7 +6,7 @@
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/353eb2b9-6278-4d71-a7c5-ac5e3915cb15)
 
 
-This project is about to create secure playground for network testing (difrent type of routing like OSPF RIP EIGRP etc.) and also last but not least the main goal is to take control on MY OWN old laptop Dell. E6320 witf Win7 6.1 SP1  [here](https://github.com/cierpowicz/Win7-testing) 
+This project is about to create secure playground for network testing (different type of routing like OSPF RIP EIGRP etc.) and also last but not least the main goal is to take control on MY OWN old laptop Dell. E6320 witf Win7 6.1 SP1[here](https://github.com/cierpowicz/Win7-testing) 
 
 * [Step By Step](#step-by-step)
 * [Troubleshooting](#troubleshooting)
@@ -16,7 +16,7 @@ This project is about to create secure playground for network testing (difrent t
 
 ### Step 0: Configure Pi
 
-Alright I guess that you have runing RaspberryPi connectet to Wifi. Befour start lets login in to our Pi using SSH from my main computer. To do this we have to enable SSH service on Pi.
+Alright, I guess that you have running RaspberryPi connected to Wifi. Be four start lets login in to our Pi using SSH from my main computer. To do this, we have to enable SSH service on Pi.
 ```
 sudo raspi-config
 ```
@@ -24,13 +24,12 @@ sudo raspi-config
 
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/2b326dff-8f95-4e6e-85ac-e7a1a78ed9c2)
 
-Now Im eable to connect to pI using SSH from my PC
-
+Now Im enable to connect to pI using SSH from my PC
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/14c9e951-c5c7-44b1-91a6-b2a2715d4dfa)
 
 
 ### Step 1: Setup DHCP
-Befour set DHCP we have to set static IP on our eth0 port. There is couple ways to do this but i will show you two options:
+Be four set DHCP we have to set static IP on our eth0 port. There is couple ways to do this, but i will show you two options:
 
 * (FIRST)Type in terminal:
   ``` sudo interface eth0 192.168.34.1/24```
@@ -38,7 +37,8 @@ Befour set DHCP we have to set static IP on our eth0 port. There is couple ways 
   ``` sudo nano /etc/dhcpcd.conf```
   ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/814fadf7-918c-4174-9aec-fcf52ccf3a71)
 
-Now lets download and instqall DHCP server:
+Now lets download and install DHCP server:
+
 ``` sudo apt-get install isc-dhcp-server ```
 
 Dont worry about this failer:
@@ -70,7 +70,7 @@ Now, edit ``` etc/default/isc-dhcp-server ``` ass bellow:
 
 ### Step 2: configure IP forwarding
 
-Now is necessary to configure IP forwarding. We want to forwart all traffic coming from eth0 to wlan0. Command bellow can do this ;) : 
+Now is necessary to configure IP forwarding. We want to forward all traffic coming from eth0 to wlan0. Command bellow can do this ;): 
 ```
 sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
 sudo iptables -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
@@ -95,7 +95,7 @@ then
 fi
 ```
 
-### Step 4: configure one more file ```sh /etc/rc.local ```
+### Step 4: Configure one more file ```sh /etc/rc.local ```
 
 Add in file ``` /etc/rc.local``` this line:
 
@@ -103,7 +103,7 @@ Add in file ``` /etc/rc.local``` this line:
 
 ### Step 5: Test ``` ping 8.8.8.8```
 
-Ok, now we kan test ```ping.8.8.8.8``` on DHCP Client:
+Ok, now we can test ```ping.8.8.8.8``` on DHCP Client:
 
 ![image](https://github.com/cierpowicz/RP-as-router/assets/106453032/7b649f4c-3d13-4ff5-924b-08b48416cde9)
  
